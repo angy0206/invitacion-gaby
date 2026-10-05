@@ -1,0 +1,266 @@
+<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Una aventura para dos ❤️</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head> <body>
+<main class="invitacion">
+
+
+    <!-- =====================================
+         PANTALLA 1 — INICIO
+    ====================================== -->
+
+    <section id="inicio" class="pantalla activa">
+
+        <div class="corazon">
+            ♥
+        </div>
+
+        <p class="pequeno">
+            Gaby, tengo algo que preguntarte...
+        </p>
+
+        <h1>
+            ¿Te gustaría<br>
+            vivir una aventura conmigo?
+        </h1>
+
+        <p class="mensaje">
+            Este sábado tengo un pequeño plan...
+            y me gustaría mucho compartirlo contigo
+            y tus hijitos, Monet y Salvador. ❤️
+        </p>
+
+        <button onclick="mostrar('guatavita')">
+            Descubrir el plan ✨
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         PANTALLA 2 — GUATAVITA
+    ====================================== -->
+
+    <section id="guatavita" class="pantalla">
+
+        <div class="emoji-grande">
+            🏔️
+        </div>
+
+        <p class="pequeno">
+            NUESTRA PRIMERA PARADA SERÍA
+        </p>
+
+        <h1>
+            Guatavita
+        </h1>
+
+        <p class="mensaje">
+            Un día para escapar de la rutina,
+            conocer lugares bonitos, caminar,
+            conversar y disfrutar juntas.
+        </p>
+
+        <button onclick="mostrar('glamping')">
+            Pero... hay más 😏
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         PANTALLA 3 — GLAMPING
+    ====================================== -->
+
+    <section id="glamping" class="pantalla">
+
+        <div class="emoji-grande">
+            🏕️
+        </div>
+
+        <p class="pequeno">
+            Y DESPUÉS...
+        </p>
+
+        <h1>
+            Una noche bajo las estrellas
+        </h1>
+
+        <p class="mensaje">
+            Porque la aventura no termina en Guatavita...
+        </p>
+
+        <p class="glamping-text">
+            Nos espera un pequeño escape:
+            <strong>GLAMPING</strong> ✨
+        </p>
+
+        <button onclick="mostrar('pregunta')">
+            Ahora quiero hacerte la pregunta ❤️
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         PANTALLA 4 — PREGUNTA
+    ====================================== -->
+
+    <section id="pregunta" class="pantalla">
+
+        <div class="corazon">
+            ♥
+        </div>
+
+        <p class="pequeno">
+            ENTONCES...
+        </p>
+
+        <h1>
+            ¿Vendrías conmigo?
+        </h1>
+
+        <p class="mensaje">
+            Guatavita, una noche diferente
+            y una buena compañía.
+        </p>
+
+        <div class="botones">
+
+            <button onclick="mostrar('si')">
+                Sí, vamos ❤️
+            </button>
+
+            <button class="boton-secundario" onclick="mostrar('pensarlo')">
+                Déjame pensarlo... 🤔
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PANTALLA 5 — INTENTAR OTRA VEZ
+    ====================================== -->
+
+    <section id="pensarlo" class="pantalla">
+
+        <div class="emoji-pensando">
+        🤔
+        </div>
+
+        <p class="pequeno">
+           emmmm ...
+        </p>
+
+        <h1>
+            ¿Segura que quieres pensarlo?
+        </h1>
+
+        <p class="mensaje">
+            Creo que podemos intentarlo una vez más... 😂❤️
+        </p>
+
+        <p class="continuar">
+            Pista: la respuesta correcta está abajo 👇
+        </p>
+
+        <button onclick="mostrar('pregunta')">
+            Intentémoslo otra vez 😂
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         PANTALLA 6 — FINAL
+    ====================================== -->
+
+    <section id="si" class="pantalla">
+
+        <div class="corazon grande">
+            ❤️
+        </div>
+
+        <p class="pequeno">
+            SABÍA QUE DIRÍAS QUE SÍ
+        </p>
+
+        <h1>
+            Entonces tenemos una cita. ✨
+        </h1>
+
+        <p class="mensaje">
+            Este sábado comienza nuestra pequeña aventura.
+        </p>
+
+        <div class="final">
+
+            <p>
+                🏔️ Guatavita
+            </p>
+
+            <p>
+                +
+            </p>
+
+            <p>
+                🏕️ Una noche de glamping
+            </p>
+
+            <p>
+                +
+            </p>
+
+            <p>
+                ❤️ Tú, yo, Monet y Salvador
+            </p>
+
+        </div>
+
+        <p class="firma">
+            Con cariño... 😉
+        </p>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+    function mostrar(pantalla) {
+
+        const pantallas =
+            document.querySelectorAll(".pantalla");
+
+        // Ocultar todas las pantallas
+        pantallas.forEach(function(elemento) {
+
+            elemento.classList.remove("activa");
+
+        });
+
+        // Mostrar solamente la pantalla seleccionada
+        const siguiente =
+            document.getElementById(pantalla);
+
+        siguiente.classList.add("activa");
+
+        // Volver al inicio de la pantalla
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
+</body> </html>
