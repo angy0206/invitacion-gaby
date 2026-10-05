@@ -1,0 +1,624 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+min-height: 100vh;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+padding: 20px;
+
+font-family: Georgia, "Times New Roman", serif;
+
+color: white;
+
+overflow-x: hidden;
+
+background:
+    radial-gradient(
+        circle at 20% 10%,
+        rgba(255, 105, 145, 0.18),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 80% 90%,
+        rgba(174, 45, 95, 0.20),
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #12070e 0%,
+        #260d1b 45%,
+        #13070e 100%
+    );
+
+position: relative;
+
+}
+
+/* =========================================
+PEQUEÑAS LUCES DEL FONDO
+========================================= */
+
+body::before,
+body::after {
+content: "";
+position: fixed;
+
+width: 5px;
+height: 5px;
+
+border-radius: 50%;
+
+background: rgba(255, 190, 210, 0.7);
+
+box-shadow:
+    40px 80px rgba(255, 255, 255, 0.35),
+    100px 180px rgba(255, 160, 190, 0.4),
+    180px 60px rgba(255, 255, 255, 0.25),
+    260px 240px rgba(255, 180, 200, 0.3),
+    330px 100px rgba(255, 255, 255, 0.35),
+    420px 190px rgba(255, 150, 180, 0.3);
+
+animation: estrellas 5s ease-in-out infinite alternate;
+
+pointer-events: none;
+
+}
+
+body::before {
+top: 0;
+left: 0;
+}
+
+body::after {
+bottom: 0;
+right: 0;
+
+animation-delay: 2s;
+
+}
+
+/* =========================================
+CONTENEDOR PRINCIPAL
+========================================= */
+
+.invitacion {
+width: 100%;
+max-width: 500px;
+
+min-height: 620px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+text-align: center;
+
+padding: 55px 32px;
+
+position: relative;
+
+border-radius: 35px;
+
+border: 1px solid rgba(255, 255, 255, 0.15);
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.10),
+        rgba(255, 255, 255, 0.035)
+    );
+
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+
+box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px rgba(255, 255, 255, 0.12);
+
+overflow: hidden;
+
+}
+
+/* Brillo alrededor de la tarjeta */
+
+.invitacion::before {
+content: "";
+
+position: absolute;
+
+width: 220px;
+height: 220px;
+
+top: -120px;
+right: -100px;
+
+background: rgba(255, 92, 140, 0.18);
+
+border-radius: 50%;
+
+filter: blur(40px);
+
+pointer-events: none;
+
+}
+
+/* =========================================
+PANTALLAS
+========================================= */
+
+.pantalla {
+display: none;
+
+width: 100%;
+
+position: relative;
+
+}
+
+.pantalla.activa {
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+justify-content: center;
+
+animation: aparecer 0.8s ease both;
+
+}
+
+/* =========================================
+CORAZÓN
+========================================= */
+
+.corazon {
+font-size: 58px;
+
+color: #ff7199;
+
+margin-bottom: 22px;
+
+text-shadow:
+    0 0 15px rgba(255, 90, 140, 0.5),
+    0 0 35px rgba(255, 70, 130, 0.25);
+
+animation: latido 1.8s ease-in-out infinite;
+
+}
+
+.corazon.grande {
+font-size: 78px;
+
+margin-bottom: 25px;
+
+}
+
+/* =========================================
+TEXTOS
+========================================= */
+
+.pequeno {
+font-size: 13px;
+
+color: #eab5c7;
+
+margin-bottom: 18px;
+
+letter-spacing: 3px;
+
+text-transform: uppercase;
+
+}
+
+h1 {
+font-size: clamp(30px, 8vw, 40px);
+
+line-height: 1.18;
+
+margin-bottom: 25px;
+
+font-weight: normal;
+
+text-shadow:
+    0 3px 20px rgba(0, 0, 0, 0.25);
+
+}
+
+.mensaje {
+color: #eadce1;
+
+line-height: 1.75;
+
+font-size: 17px;
+
+max-width: 380px;
+
+margin-bottom: 32px;
+
+}
+
+/* =========================================
+BOTONES
+========================================= */
+
+button {
+border: none;
+
+padding: 16px 30px;
+
+border-radius: 50px;
+
+background:
+    linear-gradient(
+        135deg,
+        #ff709b,
+        #c6386a
+    );
+
+color: white;
+
+font-family: inherit;
+
+font-size: 16px;
+
+cursor: pointer;
+
+box-shadow:
+    0 10px 30px rgba(255, 65, 120, 0.30);
+
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+/* Brillo del botón */
+
+button::before {
+content: "";
+
+position: absolute;
+
+top: 0;
+left: -100%;
+
+width: 70%;
+height: 100%;
+
+background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+);
+
+transform: skewX(-20deg);
+
+transition: left 0.6s ease;
+
+}
+
+button:hover::before {
+left: 130%;
+}
+
+button:hover {
+transform: translateY(-3px) scale(1.03);
+
+box-shadow:
+    0 15px 35px rgba(255, 65, 120, 0.45);
+
+}
+
+button:active {
+transform: scale(0.97);
+}
+
+/* =========================================
+EMOJIS GRANDES
+========================================= */
+
+.emoji-grande {
+font-size: 72px;
+
+margin-bottom: 22px;
+
+filter:
+    drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+
+animation: flotar 3.5s ease-in-out infinite;
+
+}
+
+/* =========================================
+GLAMPING
+========================================= */
+
+.glamping-text {
+color: #ff9fba;
+
+font-size: 18px;
+
+margin: 25px 0 30px;
+
+line-height: 1.6;
+
+}
+
+.glamping-text strong {
+color: white;
+
+letter-spacing: 4px;
+
+text-shadow:
+    0 0 15px rgba(255,255,255,0.25);
+
+}
+
+/* =========================================
+BOTONES DE RESPUESTA
+========================================= */
+
+.botones {
+width: 100%;
+
+max-width: 300px;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 13px;
+
+}
+
+.boton-secundario {
+background: rgba(255,255,255,0.04);
+
+border: 1px solid rgba(255,255,255,0.20);
+
+box-shadow: none;
+
+}
+
+.boton-secundario:hover {
+background: rgba(255,255,255,0.10);
+
+box-shadow:
+    0 10px 25px rgba(255,255,255,0.05);
+
+}
+
+/* =========================================
+FINAL
+========================================= */
+
+.final {
+width: 100%;
+
+max-width: 330px;
+
+margin-top: 30px;
+
+padding: 24px;
+
+border-radius: 24px;
+
+background:
+    rgba(255,255,255,0.045);
+
+border:
+    1px solid rgba(255,255,255,0.10);
+
+color: #f5dce4;
+
+line-height: 1.8;
+
+font-size: 18px;
+
+box-shadow:
+    inset 0 1px rgba(255,255,255,0.05);
+
+}
+
+.final p {
+margin: 4px 0;
+}
+
+.firma {
+margin-top: 30px;
+
+color: #ff9bb5;
+
+font-style: italic;
+
+font-size: 17px;
+
+}
+
+/* =========================================
+ANIMACIONES
+========================================= */
+
+@keyframes latido {
+
+0% {
+    transform: scale(1);
+}
+
+50% {
+    transform: scale(1.12);
+}
+
+100% {
+    transform: scale(1);
+}
+
+}
+
+@keyframes flotar {
+
+0% {
+    transform: translateY(0);
+}
+
+50% {
+    transform: translateY(-12px);
+}
+
+100% {
+    transform: translateY(0);
+}
+
+}
+
+@keyframes aparecer {
+
+from {
+    opacity: 0;
+
+    transform:
+        translateY(18px)
+        scale(0.98);
+}
+
+to {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+}
+
+@keyframes estrellas {
+
+from {
+    opacity: 0.35;
+    transform: scale(0.9);
+}
+
+to {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+}
+
+/* =========================================
+CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+body {
+    padding: 12px;
+}
+
+.invitacion {
+    min-height: calc(100vh - 24px);
+
+    padding:
+        45px
+        24px;
+
+    border-radius: 28px;
+}
+
+h1 {
+    font-size: 31px;
+}
+
+.mensaje {
+    font-size: 16px;
+}
+
+.corazon {
+    font-size: 52px;
+}
+
+.emoji-grande {
+    font-size: 65px;
+}
+
+}
+.continuar {
+    color: #ff9bb5 !important;
+
+    font-style: italic;
+
+    margin-top: 25px !important;
+    margin-bottom: 25px;
+
+    animation: pistaBrilla 2s ease-in-out infinite;
+
+    text-shadow:
+        0 0 5px rgba(255, 155, 181, 0.3),
+        0 0 15px rgba(255, 100, 150, 0.2);
+
+    cursor: default;
+}
+
+
+@keyframes pistaBrilla {
+
+    0%,
+    100% {
+        opacity: 0.65;
+
+        transform: scale(1);
+
+        text-shadow:
+            0 0 5px rgba(255, 155, 181, 0.2),
+            0 0 10px rgba(255, 100, 150, 0.1);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.04);
+
+        text-shadow:
+            0 0 8px rgba(255, 155, 181, 0.7),
+            0 0 20px rgba(255, 100, 150, 0.45);
+    }
+
+}
+emoji-pensando {
+    font-size: 65px;
+    margin-bottom: 22px;
+
+    animation: pensando 2s ease-in-out infinite;
+
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes pensando {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(-5deg);
+    }
+
+}
