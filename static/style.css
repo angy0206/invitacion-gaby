@@ -601,7 +601,7 @@ h1 {
     }
 
 }
-emoji-pensando {
+.emoji-pensando {
     font-size: 65px;
     margin-bottom: 22px;
 
@@ -621,4 +621,465 @@ emoji-pensando {
         transform: translateY(-8px) rotate(-5deg);
     }
 
+}
+.aventuras {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.aventura-card {
+    width: 100%;
+    min-height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 22px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Brillo suave */
+
+.aventura-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    top: -100px;
+    right: -70px;
+
+}
+
+
+/* Diferentes colores */
+
+.aventura-1 {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(132, 55, 90, 0.9),
+            rgba(55, 25, 45, 0.95)
+        );
+
+}
+
+
+.aventura-2 {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(85, 55, 80, 0.9),
+            rgba(40, 25, 45, 0.95)
+        );
+
+}
+
+
+.aventura-3 {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(65, 65, 90, 0.9),
+            rgba(30, 25, 45, 0.95)
+        );
+
+}
+
+
+.aventura-card:hover {
+
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+
+.aventura-emoji {
+
+    font-size: 34px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.aventura-titulo {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+
+}
+
+
+.aventura-subtitulo {
+
+    font-size: 14px;
+
+    color: #e9dce1;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+   DETALLE DEL PLAN
+========================================= */
+
+.detalle-plan {
+
+    margin: 25px 0;
+
+    padding: 20px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+}
+
+
+.paso-plan {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    text-align: left;
+
+}
+
+
+.paso-plan > span {
+
+    font-size: 32px;
+
+    min-width: 40px;
+
+}
+
+
+.paso-plan strong {
+
+    display: block;
+
+    font-size: 19px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.paso-plan p {
+
+    color: #e7d7dc;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+.flecha-plan {
+
+    color: #ff9bb5;
+
+    font-size: 22px;
+
+    margin: 8px 0 8px 10px;
+
+}
+
+
+/* =========================================
+   BOTÓN SECUNDARIO
+========================================= */
+
+.detalle-plan + .mensaje {
+
+    margin-top: 20px;
+
+}
+
+
+/* En celular */
+
+@media (max-width: 600px) {
+
+    .aventura-card {
+
+        min-height: 115px;
+
+        padding: 20px;
+
+    }
+
+    .aventura-titulo {
+
+        font-size: 19px;
+
+    }
+
+    .aventura-subtitulo {
+
+        font-size: 13px;
+
+    }
+
+    .paso-plan p {
+
+        font-size: 13px;
+
+    }
+
+}
+.link-glamping {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    color: #ffb3c7;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.link-glamping:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    transform: scale(1.03);
+
+    color: white;
+}
+/* =========================================
+   CLIMA CÁLIDO
+========================================= */
+
+.aventuras-calido {
+    width: 100%;
+}
+
+
+/* -----------------------------------------
+   TARJETA ECO VILLA
+----------------------------------------- */
+
+.aventura-calido-1 {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(77, 110, 72, 0.95),
+            rgba(35, 65, 42, 0.98)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(35, 80, 45, 0.25);
+
+}
+
+
+/* -----------------------------------------
+   TARJETA CASONA
+----------------------------------------- */
+
+.aventura-calido-2 {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(184, 105, 58, 0.95),
+            rgba(104, 48, 42, 0.98)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(180, 85, 45, 0.25);
+
+}
+
+
+/* -----------------------------------------
+   HOVER
+----------------------------------------- */
+
+.aventura-calido-1:hover {
+
+    box-shadow:
+        0 18px 40px rgba(80, 140, 80, 0.35);
+
+}
+
+
+.aventura-calido-2:hover {
+
+    box-shadow:
+        0 18px 40px rgba(220, 120, 60, 0.35);
+
+}
+
+
+/* -----------------------------------------
+   DETALLE CÁLIDO
+----------------------------------------- */
+
+.link-calido {
+
+    color: #ffd28a;
+
+    background:
+        rgba(255, 190, 90, 0.08);
+
+    border:
+        1px solid rgba(255, 210, 130, 0.22);
+
+}
+
+
+.link-calido:hover {
+
+    color: white;
+
+    background:
+        rgba(255, 190, 90, 0.16);
+
+}
+
+
+/* -----------------------------------------
+   PEQUEÑO BRILLO CÁLIDO
+----------------------------------------- */
+
+#calido .emoji-grande,
+#detalle-calido1 .emoji-grande,
+#detalle-calido2 .emoji-grande {
+
+    filter:
+        drop-shadow(
+            0 8px 18px
+            rgba(255, 170, 60, 0.35)
+        );
+
+}
+
+
+/* -----------------------------------------
+   DETALLES DEL PLAN CÁLIDO
+----------------------------------------- */
+
+#detalle-calido1 .flecha-plan,
+#detalle-calido2 .flecha-plan {
+
+    color: #ffc56b;
+
+}
+
+
+#detalle-calido1 .paso-plan strong,
+#detalle-calido2 .paso-plan strong {
+
+    color: #ffe0a3;
+
+}
+
+
+/* -----------------------------------------
+   MÓVIL
+----------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .aventuras-calido {
+
+        margin-top: 20px;
+
+    }
+
+}
+/* =========================================
+   CAMBIAR DE CLIMA
+========================================= */
+
+.cambiar-clima {
+    width: 100%;
+    margin-top: 32px;
+    padding-top: 24px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.pregunta-clima {
+    color: #f3dce4;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+.subpregunta-clima {
+    color: #ff9bb5;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.cambiar-clima .boton-secundario {
+    font-size: 14px;
+    padding: 12px 20px;
 }
