@@ -1,266 +1,1792 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>❤️ Una aventura para dos ❤️</title>
+<!DOCTYPE html>
+<html lang="es">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head> <body>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>❤️ Una aventura para dos ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
 <main class="invitacion">
 
 
-    <!-- =====================================
-         PANTALLA 1 — INICIO
-    ====================================== -->
+<!-- =========================================
+     PANTALLA 1 - INICIO
+========================================== -->
 
-    <section id="inicio" class="pantalla activa">
+<section id="inicio" class="pantalla activa">
 
-        <div class="corazon">
-            ♥
-        </div>
+    <div class="corazon">
+        ♥
+    </div>
 
-        <p class="pequeno">
-            Gaby, tengo algo que preguntarte...
-        </p>
+    <p class="pequeno">
+        Gaby, tengo algo que preguntarte...
+    </p>
 
-        <h1>
-            ¿Te gustaría<br>
-            vivir una aventura conmigo?
-        </h1>
+    <h1>
+        ¿Te gustaría<br>
+        vivir una aventura conmigo?
+    </h1>
 
-        <p class="mensaje">
-            Este sábado tengo un pequeño plan...
-            y me gustaría mucho compartirlo contigo
-            y tus hijitos, Monet y Salvador. ❤️
-        </p>
+    <p class="mensaje">
+        Este sábado tengo un pequeño plan...
+        y me gustaría mucho compartirlo contigo
+        y tus hijitos (Monet y Salvador). ❤️
+    </p>
 
-        <button onclick="mostrar('guatavita')">
-            Descubrir el plan ✨
+    <button onclick="mostrar('clima')">
+        Descubrir el plan ✨
+    </button>
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 2 - ELECCIÓN DE CLIMA
+========================================== -->
+
+<section id="clima" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        🌦️
+    </div>
+
+    <p class="pequeno">
+        PRIMERA DECISIÓN
+    </p>
+
+    <h1>
+        ¿Qué clima prefieres?
+    </h1>
+
+    <p class="mensaje">
+        Elige cómo quieres que sea nuestra aventura ❤️
+    </p>
+
+
+    <div class="opciones-clima">
+
+
+        <!-- CLIMA FRÍO -->
+
+        <button
+            class="tarjeta-opcion"
+            onclick="seleccionarClima('frio')">
+
+            <span class="opcion-emoji">
+                🥶
+            </span>
+
+            <span class="opcion-titulo">
+                CLIMA FRÍO
+            </span>
+
         </button>
 
-    </section>
 
+        <!-- CLIMA CÁLIDO -->
 
-    <!-- =====================================
-         PANTALLA 2 — GUATAVITA
-    ====================================== -->
+        <button
+            class="tarjeta-opcion"
+            onclick="seleccionarClima('calido')">
 
-    <section id="guatavita" class="pantalla">
+            <span class="opcion-emoji">
+                ☀️
+            </span>
 
-        <div class="emoji-grande">
-            🏔️
-        </div>
+            <span class="opcion-titulo">
+                CLIMA CÁLIDO
+            </span>
 
-        <p class="pequeno">
-            NUESTRA PRIMERA PARADA SERÍA
-        </p>
-
-        <h1>
-            Guatavita
-        </h1>
-
-        <p class="mensaje">
-            Un día para escapar de la rutina,
-            conocer lugares bonitos, caminar,
-            conversar y disfrutar juntas.
-        </p>
-
-        <button onclick="mostrar('glamping')">
-            Pero... hay más 😏
         </button>
 
-    </section>
+
+    </div>
+
+</section>
 
 
-    <!-- =====================================
-         PANTALLA 3 — GLAMPING
-    ====================================== -->
 
-    <section id="glamping" class="pantalla">
+<!-- =========================================
+     PANTALLA 3 - OPCIONES CLIMA FRÍO
+========================================== -->
 
-        <div class="emoji-grande">
-            🏕️
-        </div>
+<section id="planes-frio" class="pantalla oculta">
 
-        <p class="pequeno">
-            Y DESPUÉS...
-        </p>
+    <div class="emoji-grande">
+        🥶
+    </div>
 
-        <h1>
-            Una noche bajo las estrellas
-        </h1>
+    <p class="pequeno">
+        CLIMA FRÍO
+    </p>
 
-        <p class="mensaje">
-            Porque la aventura no termina en Guatavita...
-        </p>
+    <h1>
+        ¿Qué aventura escogemos?
+    </h1>
 
-        <p class="glamping-text">
-            Nos espera un pequeño escape:
-            <strong>GLAMPING</strong> ✨
-        </p>
+    <p class="mensaje">
+        Tú eliges... ❤️
+    </p>
 
-        <button onclick="mostrar('pregunta')">
-            Ahora quiero hacerte la pregunta ❤️
+
+    <div class="aventuras">
+
+
+        <!-- AVENTURA 1 -->
+
+        <button
+            class="aventura-card aventura-1"
+            onclick="mostrarDetalle('opcion1')">
+
+            <span class="aventura-emoji">
+                ✨
+            </span>
+
+            <span class="aventura-titulo">
+                Aventura completa
+            </span>
+
+            <span class="aventura-subtitulo">
+                Una experiencia para disfrutar sin afanes
+            </span>
+
         </button>
 
-    </section>
 
 
-    <!-- =====================================
-         PANTALLA 4 — PREGUNTA
-    ====================================== -->
+        <!-- AVENTURA 2 -->
 
-    <section id="pregunta" class="pantalla">
+        <button
+            class="aventura-card aventura-2"
+            onclick="mostrarDetalle('opcion2')">
 
-        <div class="corazon">
-            ♥
-        </div>
+            <span class="aventura-emoji">
+                ❤️
+            </span>
 
-        <p class="pequeno">
-            ENTONCES...
+            <span class="aventura-titulo">
+                Sin afanes
+            </span>
+
+            <span class="aventura-subtitulo">
+                Más tiempo para disfrutar juntas
+            </span>
+
+        </button>
+
+
+
+        <!-- AVENTURA 3 -->
+
+        <button
+            class="aventura-card aventura-3"
+            onclick="mostrarDetalle('opcion3')">
+
+            <span class="aventura-emoji">
+                🏕️
+            </span>
+
+            <span class="aventura-titulo">
+                Una escapadita
+            </span>
+
+            <span class="aventura-subtitulo">
+                Una noche diferente
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- VOLVER A CAMBIAR CLIMA -->
+
+    <div class="cambiar-clima">
+
+        <p class="pregunta-clima">
+            🥶 ¿Y si resulta que eres más de solcito?
         </p>
 
-        <h1>
-            ¿Vendrías conmigo?
-        </h1>
-
-        <p class="mensaje">
-            Guatavita, una noche diferente
-            y una buena compañía.
+        <p class="subpregunta-clima">
+            Todavía estás a tiempo de arrepentirte... 😂
         </p>
 
-        <div class="botones">
+        <button
+            class="boton-secundario"
+            onclick="mostrar('clima')">
 
-            <button onclick="mostrar('si')">
-                Sí, vamos ❤️
-            </button>
+            ☀️ Mejor quiero ver el clima cálido
 
-            <button class="boton-secundario" onclick="mostrar('pensarlo')">
-                Déjame pensarlo... 🤔
-            </button>
+        </button>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 4 - DETALLE OPCIÓN 1
+========================================== -->
+
+<section id="detalle-opcion1" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        ✨
+    </div>
+
+    <p class="pequeno">
+        AVENTURA COMPLETA
+    </p>
+
+    <h1>
+        Una aventura para recordar
+    </h1>
+
+
+    <div class="detalle-plan">
+
+
+        <div class="paso-plan">
+
+            <span>
+                🏔️
+            </span>
+
+            <div>
+
+                <strong>
+                    Guatavita
+                </strong>
+
+                <p>
+                    Un día para escapar de la rutina,
+                    caminar, conocer lugares bonitos
+                    y disfrutar juntas.
+                </p>
+
+            </div>
 
         </div>
 
-    </section>
+
+        <div class="flecha-plan">
+            ↓
+        </div>
 
 
-    <!-- =====================================
-         PANTALLA 5 — INTENTAR OTRA VEZ
-    ====================================== -->
+        <div class="paso-plan">
 
-    <section id="pensarlo" class="pantalla">
+            <span>
+                🏕️
+            </span>
 
-        <div class="emoji-pensando">
+            <div>
+
+                <strong>
+                    Glamping
+                </strong>
+
+                <p>
+                    Una noche diferente,
+                    bajo las estrellas.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/glamping_amaru/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-glamping">
+
+                    🏕️ Ver el glamping ✨
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🏡
+            </span>
+
+            <div>
+
+                <strong>
+                    Madrid
+                </strong>
+
+                <p>
+                    Después nos vamos a mi apartamento
+                    para continuar la aventura.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <p class="mensaje">
+        Una aventura completa,
+        sin afanes y con buena compañía. ❤️
+    </p>
+
+
+    <button onclick="confirmarPlan('opcion1')">
+        Sí, este plan 😍
+    </button>
+
+
+    <br><br>
+
+
+    <button
+        class="boton-secundario"
+        onclick="mostrar('clima')">
+
+        🔄 Quiero volver a escoger el clima
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 5 - DETALLE OPCIÓN 2
+========================================== -->
+
+<section id="detalle-opcion2" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        ❤️
+    </div>
+
+    <p class="pequeno">
+        SIN AFANES
+    </p>
+
+    <h1>
+        Tenemos tiempo para disfrutar
+    </h1>
+
+
+    <div class="detalle-plan">
+
+
+        <div class="paso-plan">
+
+            <span>
+                🏔️
+            </span>
+
+            <div>
+
+                <strong>
+                    Guatavita
+                </strong>
+
+                <p>
+                    Un día para conocer,
+                    caminar y disfrutar juntas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🏕️
+            </span>
+
+            <div>
+
+                <strong>
+                    Glamping
+                </strong>
+
+                <p>
+                    Dos noches para desconectarnos
+                    y disfrutar sin mirar el reloj.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/glamping_amaru/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-glamping">
+
+                    🏕️ Ver el glamping ✨
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <p class="mensaje">
+        Dos noches para que la aventura
+        sea con calma. ❤️
+    </p>
+
+
+    <button onclick="confirmarPlan('opcion2')">
+        Sí, este plan 😍
+    </button>
+
+
+    <br><br>
+
+
+    <button
+        class="boton-secundario"
+        onclick="mostrar('clima')">
+
+        🔄 Quiero volver a escoger el clima
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 6 - DETALLE OPCIÓN 3
+========================================== -->
+
+<section id="detalle-opcion3" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        🏕️
+    </div>
+
+    <p class="pequeno">
+        UNA ESCAPADITA
+    </p>
+
+    <h1>
+        Una noche diferente
+    </h1>
+
+
+    <div class="detalle-plan">
+
+
+        <div class="paso-plan">
+
+            <span>
+                🏔️
+            </span>
+
+            <div>
+
+                <strong>
+                    Guatavita
+                </strong>
+
+                <p>
+                    Un día para escapar,
+                    caminar y compartir juntas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🏕️
+            </span>
+
+            <div>
+
+                <strong>
+                    Glamping
+                </strong>
+
+                <p>
+                    Una noche bajo las estrellas
+                    antes de regresar a casa.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/glamping_amaru/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-glamping">
+
+                    🏕️ Ver el glamping ✨
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <p class="mensaje">
+        Una pequeña escapada,
+        pero una gran aventura. ❤️
+    </p>
+
+
+    <button onclick="confirmarPlan('opcion3')">
+        Sí, este plan 😍
+    </button>
+
+
+    <br><br>
+
+
+    <button
+        class="boton-secundario"
+        onclick="mostrar('clima')">
+
+        🔄 Quiero volver a escoger el clima
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 7 - MENÚ CLIMA CÁLIDO
+========================================== -->
+
+<section id="calido" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        ☀️
+    </div>
+
+    <p class="pequeno">
+        CLIMA CÁLIDO
+    </p>
+
+    <h1>
+        ¿Qué aventura escogemos?
+    </h1>
+
+    <p class="mensaje">
+        Esta vez cambiamos el frío por sol,
+        naturaleza y una escapadita. ❤️
+    </p>
+
+
+    <div class="aventuras">
+
+
+        <!-- ECO VILLA -->
+
+        <button
+            class="aventura-card aventura-1"
+            onclick="mostrarDetalleCalido('calido1')">
+
+            <span class="aventura-emoji">
+                🌿
+            </span>
+
+            <span class="aventura-titulo">
+                Eco Villa Babilonia
+            </span>
+
+            <span class="aventura-subtitulo">
+                Naturaleza, piscina y dos noches diferentes
+            </span>
+
+        </button>
+
+
+
+        <!-- LA CASONA -->
+
+        <button
+            class="aventura-card aventura-2"
+            onclick="mostrarDetalleCalido('calido2')">
+
+            <span class="aventura-emoji">
+                🌅
+            </span>
+
+            <span class="aventura-titulo">
+                La Casona de Sara
+            </span>
+
+            <span class="aventura-subtitulo">
+                Una escapadita especial por dos noches
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- VOLVER A CAMBIAR CLIMA -->
+
+    <div class="cambiar-clima">
+
+        <p class="pregunta-clima">
+            ☀️ ¿Y si de repente se te antojó pasar frío?
+        </p>
+
+        <p class="subpregunta-clima">
+            Uno nunca sabe... 😂
+        </p>
+
+        <button
+            class="boton-secundario"
+            onclick="mostrar('clima')">
+
+            🥶 Mejor quiero ver el clima frío
+
+        </button>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 7.1 - ECO VILLA BABILONIA
+========================================== -->
+
+<section id="detalle-calido1" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        🌿
+    </div>
+
+    <p class="pequeno">
+        ECO VILLA BABILONIA
+    </p>
+
+    <h1>
+        Dos noches para desconectarnos ☀️
+    </h1>
+
+
+    <div class="detalle-plan">
+
+
+        <div class="paso-plan">
+
+            <span>
+                🚗
+            </span>
+
+            <div>
+
+                <strong>
+                    Rumbo a tierra caliente
+                </strong>
+
+                <p>
+                    Dejamos atrás la rutina
+                    y nos vamos juntas a cambiar
+                    de paisaje.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🌿
+            </span>
+
+            <div>
+
+                <strong>
+                    Eco Villa Babilonia
+                </strong>
+
+                <p>
+                    Un lugar rodeado de naturaleza
+                    para quedarnos dos noches,
+                    descansar y disfrutar sin afanes.
+                </p>
+
+                <a
+                    href="https://www.airbnb.cl/rooms/51455222?unique_share_id=25518e24-5df3-4714-855c-8e6cffa88f96&viralityEntryPoint=1&s=76&source_impression_id=p3_1791305130_P3ipmKPpUXWiAzgy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-glamping">
+
+                    🏡 Ver el alojamiento ✨
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                💦
+            </span>
+
+            <div>
+
+                <strong>
+                    Naturaleza y agua
+                </strong>
+
+                <p>
+                    Tiempo para disfrutar la piscina,
+                    conocer los alrededores y
+                    simplemente estar juntas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🌙
+            </span>
+
+            <div>
+
+                <strong>
+                    2 noches
+                </strong>
+
+                <p>
+                    Dos noches para olvidarnos
+                    un poquito del reloj y disfrutar
+                    de nuestra escapadita.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <p class="mensaje">
+        Sol, naturaleza, dos noches
+        y tú... ❤️
+    </p>
+
+
+    <button onclick="confirmarPlanCalido('calido1')">
+        Sí, este plan 😍
+    </button>
+
+
+    <br><br>
+
+
+    <button
+        class="boton-secundario"
+        onclick="mostrar('clima')">
+
+        🔄 Quiero volver a escoger el clima
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 7.2 - LA CASONA DE SARA
+========================================== -->
+
+<section id="detalle-calido2" class="pantalla oculta">
+
+    <div class="emoji-grande">
+        🌅
+    </div>
+
+    <p class="pequeno">
+        LA CASONA DE SARA
+    </p>
+
+    <h1>
+        Dos noches para disfrutar ❤️
+    </h1>
+
+
+    <div class="detalle-plan">
+
+
+        <div class="paso-plan">
+
+            <span>
+                🚗
+            </span>
+
+            <div>
+
+                <strong>
+                    Rumbo a Honda
+                </strong>
+
+                <p>
+                    Nos vamos a tierra caliente
+                    para cambiar de escenario
+                    y salir un poquito de la rutina.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🌴
+            </span>
+
+            <div>
+
+                <strong>
+                    La Casona de Sara
+                </strong>
+
+                <p>
+                    Un lugar diferente para quedarnos
+                    dos noches, descansar y disfrutar
+                    juntas.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/lacasonadesara_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-glamping">
+
+                    🌴 Ver el lugar ✨
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                ☀️
+            </span>
+
+            <div>
+
+                <strong>
+                    Tierra caliente
+                </strong>
+
+                <p>
+                    Tiempo para conocer,
+                    comer rico, pasear y disfrutar
+                    sin tener que correr.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flecha-plan">
+            ↓
+        </div>
+
+
+        <div class="paso-plan">
+
+            <span>
+                🌙
+            </span>
+
+            <div>
+
+                <strong>
+                    2 noches
+                </strong>
+
+                <p>
+                    Dos noches para desconectarnos
+                    y hacer de la escapadita
+                    algo realmente especial.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <p class="mensaje">
+        Dos noches, tierra caliente
+        y una buena compañía. ❤️
+    </p>
+
+
+    <button onclick="confirmarPlanCalido('calido2')">
+        Sí, este plan 😍
+    </button>
+
+
+    <br><br>
+
+
+    <button
+        class="boton-secundario"
+        onclick="mostrar('clima')">
+
+        🔄 Quiero volver a escoger el clima
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 8 - PLAN ELEGIDO
+========================================== -->
+
+<section id="plan-elegido" class="pantalla oculta">
+
+    <div class="corazon">
+        ❤️
+    </div>
+
+    <p class="pequeno">
+        ENTONCES...
+    </p>
+
+    <h1>
+        ¡Tenemos un plan! ✨
+    </h1>
+
+    <div
+        id="resumen-plan"
+        class="final">
+    </div>
+
+    <p class="mensaje">
+        Ahora sí... viene la pregunta importante. ❤️
+    </p>
+
+    <button onclick="mostrar('pregunta')">
+        Continuar 😏
+    </button>
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 9 - PREGUNTA
+========================================== -->
+
+<section id="pregunta" class="pantalla oculta">
+
+    <div class="corazon">
+        ♥
+    </div>
+
+    <p class="pequeno">
+        ENTONCES...
+    </p>
+
+    <h1>
+        ¿Vendrías conmigo?
+    </h1>
+
+    <p class="mensaje">
+        Una aventura, una escapadita
+        y una buena compañía. ❤️
+    </p>
+
+
+    <div class="botones">
+
+        <button onclick="mostrarFinal()">
+            Sí, vamos ❤️
+        </button>
+
+        <button
+            class="boton-secundario"
+            onclick="mostrar('pensar')">
+
+            Déjame pensarlo... 🤔
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PANTALLA 10 - PENSAR
+========================================== -->
+
+<section id="pensar" class="pantalla oculta">
+
+    <div class="emoji-pensando">
         🤔
-        </div>
+    </div>
 
-        <p class="pequeno">
-           emmmm ...
-        </p>
+    <p class="pequeno">
+        MMMMM...
+    </p>
 
-        <h1>
-            ¿Segura que quieres pensarlo?
-        </h1>
+    <h1>
+        ¿Segura que quieres pensarlo?
+    </h1>
 
-        <p class="mensaje">
-            Creo que podemos intentarlo una vez más... 😂❤️
-        </p>
+    <p class="mensaje">
+        Creo que necesitas una pequeña pista... 👀
+    </p>
 
-        <p class="continuar">
-            Pista: la respuesta correcta está abajo 👇
-        </p>
+    <p class="continuar">
+        Pista: la respuesta correcta está abajo 👇
+    </p>
+
+
+    <div class="botones">
+
 
         <button onclick="mostrar('pregunta')">
             Intentémoslo otra vez 😂
         </button>
 
-    </section>
+
+        <button
+            class="boton-secundario"
+            onclick="mostrar('clima')">
+
+            🌦️ Quiero volver a escoger el clima
+
+        </button>
 
 
-    <!-- =====================================
-         PANTALLA 6 — FINAL
-    ====================================== -->
+    </div>
 
-    <section id="si" class="pantalla">
+</section>
 
-        <div class="corazon grande">
-            ❤️
-        </div>
 
-        <p class="pequeno">
-            SABÍA QUE DIRÍAS QUE SÍ
-        </p>
 
-        <h1>
-            Entonces tenemos una cita. ✨
-        </h1>
+<!-- =========================================
+     PANTALLA 11 - SÍ
+========================================== -->
 
-        <p class="mensaje">
-            Este sábado comienza nuestra pequeña aventura.
-        </p>
+<section id="si" class="pantalla oculta">
 
-        <div class="final">
+    <div class="corazon grande">
+        ❤️
+    </div>
 
-            <p>
-                🏔️ Guatavita
-            </p>
+    <p class="pequeno">
+        SABÍA QUE DIRÍAS QUE SÍ
+    </p>
 
-            <p>
-                +
-            </p>
+    <h1>
+        Entonces tenemos una cita. ✨
+    </h1>
 
-            <p>
-                🏕️ Una noche de glamping
-            </p>
+    <p class="mensaje">
+        Este sábado comienza nuestra pequeña aventura.
+    </p>
 
-            <p>
-                +
-            </p>
 
-            <p>
-                ❤️ Tú, yo, Monet y Salvador
-            </p>
+    <div
+        id="detalle-final"
+        class="final">
+    </div>
 
-        </div>
 
-        <p class="firma">
-            Con cariño... 😉
-        </p>
+    <p class="firma">
+        Con cariño... 😉
+    </p>
 
-    </section>
+</section>
+
 
 
 </main>
 
 
-<!-- =====================================
-     JAVASCRIPT
-====================================== -->
 
 <script>
 
-    function mostrar(pantalla) {
+/* =========================================
+   VARIABLES
+========================================== */
 
-        const pantallas =
-            document.querySelectorAll(".pantalla");
+let climaElegido = "";
 
-        // Ocultar todas las pantallas
-        pantallas.forEach(function(elemento) {
+let planElegido = "";
 
-            elemento.classList.remove("activa");
 
-        });
+/* =========================================
+   MOSTRAR PANTALLA
+========================================== */
 
-        // Mostrar solamente la pantalla seleccionada
-        const siguiente =
-            document.getElementById(pantalla);
+function mostrar(pantalla) {
 
-        siguiente.classList.add("activa");
+    const pantallas =
+        document.querySelectorAll(".pantalla");
 
-        // Volver al inicio de la pantalla
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    pantallas.forEach(function(elemento) {
+
+        elemento.classList.remove("activa");
+
+        elemento.classList.add("oculta");
+
+    });
+
+
+    const siguiente =
+        document.getElementById(pantalla);
+
+
+    if (!siguiente) {
+
+        console.error(
+            "No existe la pantalla:",
+            pantalla
+        );
+
+        return;
 
     }
 
+
+    siguiente.classList.remove("oculta");
+
+    siguiente.classList.add("activa");
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* =========================================
+   SELECCIONAR CLIMA
+========================================== */
+
+function seleccionarClima(clima) {
+
+    climaElegido = clima;
+
+
+    if (clima === "frio") {
+
+        mostrar("planes-frio");
+
+    }
+
+
+    else if (clima === "calido") {
+
+        mostrar("calido");
+
+    }
+
+}
+
+
+/* =========================================
+   MOSTRAR DETALLE FRÍO
+========================================== */
+
+function mostrarDetalle(plan) {
+
+    mostrar("detalle-" + plan);
+
+}
+
+
+/* =========================================
+   MOSTRAR DETALLE CÁLIDO
+========================================== */
+
+function mostrarDetalleCalido(plan) {
+
+    mostrar("detalle-" + plan);
+
+}
+
+
+/* =========================================
+   CONFIRMAR PLAN FRÍO
+========================================== */
+
+function confirmarPlan(plan) {
+
+    climaElegido = "frio";
+
+    planElegido = plan;
+
+
+    const resumen =
+        document.getElementById("resumen-plan");
+
+
+    if (plan === "opcion1") {
+
+        resumen.innerHTML = `
+
+            <p>
+                ✨ <strong>Aventura completa</strong>
+            </p>
+
+            <br>
+
+            <p>
+                🏔️ Guatavita
+            </p>
+
+            <p>↓</p>
+
+            <p>
+                🏕️ Glamping
+            </p>
+
+            <p>↓</p>
+
+            <p>
+                🏡 Madrid
+            </p>
+
+        `;
+
+    }
+
+
+    else if (plan === "opcion2") {
+
+        resumen.innerHTML = `
+
+            <p>
+                ❤️ <strong>Sin afanes</strong>
+            </p>
+
+            <br>
+
+            <p>
+                🏔️ Guatavita
+            </p>
+
+            <p>↓</p>
+
+            <p>
+                🏕️ Glamping
+            </p>
+
+            <p>
+                ❤️ 2 noches
+            </p>
+
+        `;
+
+    }
+
+
+    else if (plan === "opcion3") {
+
+        resumen.innerHTML = `
+
+            <p>
+                🏕️ <strong>Una escapadita</strong>
+            </p>
+
+            <br>
+
+            <p>
+                🏔️ Guatavita
+            </p>
+
+            <p>↓</p>
+
+            <p>
+                🏕️ Glamping
+            </p>
+
+            <p>
+                ❤️ 1 noche
+            </p>
+
+        `;
+
+    }
+
+
+    mostrar("plan-elegido");
+
+}
+
+
+/* =========================================
+   CONFIRMAR PLAN CÁLIDO
+========================================== */
+
+function confirmarPlanCalido(plan) {
+
+    climaElegido = "calido";
+
+    planElegido = plan;
+
+
+    const resumen =
+        document.getElementById("resumen-plan");
+
+
+    if (plan === "calido1") {
+
+        resumen.innerHTML = `
+
+            <p>
+                🌿 <strong>Eco Villa Babilonia</strong>
+            </p>
+
+            <br>
+
+            <p>
+                ☀️ Tierra caliente
+            </p>
+
+            <p>↓</p>
+
+            <p>
+                🌿 Eco Villa Babilonia
+            </p>
+
+            <p>
+                🌙 2 noches
+            </p>
+
+        `;
+
+    }
+
+
+    else if (plan === "calido2") {
+
+        resumen.innerHTML = `
+
+            <p>
+                🌅 <strong>La Casona de Sara</strong>
+            </p>
+
+            <br>
+
+            <p>
+                ☀️ Tierra caliente
+            </p>
+
+            <p>↓</p>
+
+            <p>
+                🌅 La Casona de Sara
+            </p>
+
+            <p>
+                🌙 2 noches
+            </p>
+
+        `;
+
+    }
+
+
+    mostrar("plan-elegido");
+
+}
+
+
+/* =========================================
+   MOSTRAR FINAL
+========================================== */
+
+async function mostrarFinal() {
+
+    const detalleFinal =
+        document.getElementById("detalle-final");
+
+    let nombre = "Gaby";
+
+    let clima = "";
+
+    let plan = "";
+
+    let contenidoFinal = "";
+
+
+    /* =====================================
+       CLIMA FRÍO
+    ===================================== */
+
+    if (climaElegido === "frio") {
+
+
+        clima = "frio";
+
+
+        if (planElegido === "opcion1") {
+
+            plan = "Aventura completa";
+
+
+            contenidoFinal = `
+
+                <p>
+                    🏔️ Guatavita
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🏕️ Glamping
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🏡 Madrid
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    ❤️ Tú y yo
+                </p>
+
+            `;
+
+        }
+
+
+        else if (planElegido === "opcion2") {
+
+            plan = "Sin afanes";
+
+
+            contenidoFinal = `
+
+                <p>
+                    🏔️ Guatavita
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🏕️ Glamping
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🌙 2 noches
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    ❤️ Tú y yo
+                </p>
+
+            `;
+
+        }
+
+
+        else if (planElegido === "opcion3") {
+
+            plan = "Una escapadita";
+
+
+            contenidoFinal = `
+
+                <p>
+                    🏔️ Guatavita
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🏕️ Glamping
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🌙 1 noche
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    ❤️ Tú y yo
+                </p>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================
+       CLIMA CÁLIDO
+    ===================================== */
+
+    else if (climaElegido === "calido") {
+
+        clima = "calido";
+
+
+        if (planElegido === "calido1") {
+
+            plan = "Eco Villa Babilonia";
+
+
+            contenidoFinal = `
+
+                <p>
+                    ☀️ Tierra caliente
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🌿 Eco Villa Babilonia
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🌙 2 noches
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    ❤️ Tú y yo
+                </p>
+
+            `;
+
+        }
+
+
+        else if (planElegido === "calido2") {
+
+            plan = "La Casona de Sara";
+
+
+            contenidoFinal = `
+
+                <p>
+                    ☀️ Tierra caliente
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🌅 La Casona de Sara
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    🌙 2 noches
+                </p>
+
+                <p>+</p>
+
+                <p>
+                    ❤️ Tú y yo
+                </p>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================
+       GUARDAR EN FLASK
+    ===================================== */
+
+    try {
+
+        const respuesta = await fetch(
+            "/guardar-eleccion",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    nombre: nombre,
+
+                    clima: clima,
+
+                    plan: plan
+
+                })
+
+            }
+        );
+
+
+        const resultado =
+            await respuesta.json();
+
+
+        if (!resultado.success) {
+
+            console.error(
+                "No se pudo guardar la elección"
+            );
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error guardando elección:",
+            error
+        );
+
+    }
+
+
+    /* =====================================
+       MOSTRAR RESULTADO FINAL
+    ===================================== */
+
+    detalleFinal.innerHTML =
+        contenidoFinal;
+
+
+    mostrar("si");
+
+}
+
 </script>
-</body> </html>
+
+
+</body>
